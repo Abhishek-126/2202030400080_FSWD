@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div class="flex h-screen flex-col md:flex-row">
+        <!-- Sidebar -->
+        <aside class="w-full md:w-64 bg-gray-800 text-white p-5 md:block flex flex-col">
+            <h2 class="text-2xl font-bold mb-6">Admin Dashboard</h2>
+            <nav>
+                <a href="#home" class="block py-2 px-4 rounded hover:bg-gray-700" onclick="showSection('home')">Home</a>
+                <a href="#analytics" class="block py-2 px-4 rounded hover:bg-gray-700" onclick="showSection('analytics')">Analytics</a>
+                <a href="#reports" class="block py-2 px-4 rounded hover:bg-gray-700" onclick="showSection('reports')">Reports</a>
+                <a href="#settings" class="block py-2 px-4 rounded hover:bg-gray-700" onclick="showSection('settings')">Settings</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <div class="flex-1 flex flex-col">
+            <!-- Navbar -->
+            <header class="bg-white dark:bg-gray-800 shadow-md p-4 flex justify-between">
+                <h1 class="text-xl font-bold">Admin Dashboard</h1>
+                <button onclick="toggleDarkMode()" class="px-4 py-2 bg-gray-700 text-white rounded">Toggle Mode</button>
+            </header>
+
+            <!-- Dashboard Sections -->
+            <main class="p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <section id="home" class="content-section">
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow">
+                        <h2 class="text-lg font-bold">Overview</h2>
+                        <p class="mt-2">Welcome to the Admin Dashboard. Here you can manage users, track analytics, and generate reports.</p>
+                        <ul class="mt-4 list-disc pl-5">
+                            <li>Active Users: 1200</li>
+                            <li>Pending Tasks: 15</li>
+                            <li>System Uptime: 99.9%</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="analytics" class="content-section hidden">
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow">
+                        <h2 class="text-lg font-bold">Analytics</h2>
+                        <p class="mt-2">Detailed insights on user activity and performance metrics.</p>
+                        <ul class="mt-4 list-disc pl-5">
+                            <li>Page Views: 50,000</li>
+                            <li>New Signups: 340</li>
+                            <li>Bounce Rate: 12%</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="reports" class="content-section hidden">
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow">
+                        <h2 class="text-lg font-bold">Reports</h2>
+                        <p class="mt-2">Generate and review system reports.</p>
+                        <ul class="mt-4 list-disc pl-5">
+                            <li>Monthly Sales: $45,000</li>
+                            <li>Customer Feedback Score: 4.5/5</li>
+                            <li>System Errors Resolved: 98%</li>
+                        </ul>
+                    </div>
+                </section>
+                
+                <section id="settings" class="content-section hidden">
+                    <div class="bg-white dark:bg-gray-800 p-5 rounded-lg shadow">
+                        <h2 class="text-lg font-bold">Settings</h2>
+                        <p class="mt-2">Modify dashboard preferences and system configurations.</p>
+                        <ul class="mt-4 list-disc pl-5">
+                            <li>Change Password</li>
+                            <li>Manage User Roles</li>
+                            <li>Enable Two-Factor Authentication</li>
+                        </ul>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script>
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark');
+        }
+        
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.add('hidden');
+            });
+            document.getElementById(sectionId).classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
